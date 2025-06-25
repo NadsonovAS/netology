@@ -1,0 +1,11 @@
+FROM continuumio/miniconda3:latest
+
+WORKDIR /app
+
+COPY 1.sh .
+
+RUN chmod +x 1.sh
+
+RUN conda install -y python=3.10 mlflow boto3 pymysql
+
+CMD ["./1.sh"]
