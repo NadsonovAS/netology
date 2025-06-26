@@ -1,0 +1,51 @@
+[WARNING]: Invalid characters were found in group names but not replaced, use
+-vvvv to see details
+
+PLAY [netology-ml] *************************************************************
+
+TASK [Gathering Facts] *********************************************************
+[WARNING]: Platform linux on host aleksandr@ubuntu-2@orb is using the
+discovered Python interpreter at /usr/bin/python3.13, but future installation
+of another Python interpreter could change the meaning of that path. See
+https://docs.ansible.com/ansible-
+core/2.18/reference_appendices/interpreter_discovery.html for more information.
+[WARNING]: Platform linux on host aleksandr@ubuntu-1@orb is using the
+discovered Python interpreter at /usr/bin/python3.13, but future installation
+of another Python interpreter could change the meaning of that path. See
+https://docs.ansible.com/ansible-
+core/2.18/reference_appendices/interpreter_discovery.html for more information.
+ok: [aleksandr@ubuntu-2@orb]
+ok: [aleksandr@ubuntu-1@orb]
+
+TASK [Task ping] ***************************************************************
+ok: [aleksandr@ubuntu-2@orb]
+ok: [aleksandr@ubuntu-1@orb]
+
+TASK [Task update] *************************************************************
+changed: [aleksandr@ubuntu-1@orb]
+changed: [aleksandr@ubuntu-2@orb]
+
+TASK [Task install] ************************************************************
+changed: [aleksandr@ubuntu-2@orb]
+changed: [aleksandr@ubuntu-1@orb]
+
+TASK [Copy test.txt] ***********************************************************
+changed: [aleksandr@ubuntu-1@orb]
+changed: [aleksandr@ubuntu-2@orb]
+
+TASK [Create group devops_1 и test_1] ******************************************
+changed: [aleksandr@ubuntu-2@orb] => (item=devops_1)
+changed: [aleksandr@ubuntu-1@orb] => (item=devops_1)
+changed: [aleksandr@ubuntu-2@orb] => (item=test_1)
+changed: [aleksandr@ubuntu-1@orb] => (item=test_1)
+
+TASK [Create users devops_1 и test_1] ******************************************
+changed: [aleksandr@ubuntu-2@orb] => (item=devops_1)
+changed: [aleksandr@ubuntu-1@orb] => (item=devops_1)
+changed: [aleksandr@ubuntu-1@orb] => (item=test_1)
+changed: [aleksandr@ubuntu-2@orb] => (item=test_1)
+
+PLAY RECAP *********************************************************************
+aleksandr@ubuntu-1@orb     : ok=7    changed=5    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+aleksandr@ubuntu-2@orb     : ok=7    changed=5    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+

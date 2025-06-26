@@ -1,0 +1,51 @@
+- name: netology-ml
+  hosts: netology-ml
+  become: yes
+
+  vars:
+    packages_to_install:
+      - net-tools
+      - git
+      - tree
+      - htop
+      - mc
+      - vim
+
+  tasks:
+    - name: Task ping
+      ansible.builtin.ping:
+
+    - name: Task update
+      ansible.builtin.apt:
+        update_cache: yes
+
+    - name: Task install
+      ansible.builtin.apt:
+        name: "{{ packages_to_install }}"
+        state: latest
+
+    - name: Copy test.txt
+      ansible.builtin.copy:
+        src: /Users/aleksandr/Documents/Homework_space/10_DevOps_MLOps/3_ansible/text.txt
+        dest: /home/aleksandr/test.txt
+        owner: aleksandr
+        group: aleksandr
+        mode: '0777'
+
+    - name: Create group devops_1 и test_1
+      ansible.builtin.group:
+        name: "{{ item }}"
+        state: present
+      loop:
+        - devops_1
+        - test_1
+
+    - name: Create users devops_1 и test_1
+      ansible.builtin.user:
+        name: "{{ item }}"      
+        group: "{{ item }}"     
+        create_home: yes        
+        shell: /bin/bash        
+      loop:
+        - devops_1
+        - test_1
